@@ -64,7 +64,7 @@ cv2.createTrackbar('value', # name of value
 cv2.createTrackbar('gaussian', # name of value
                    'interactive-camera', # win name
                    0, # min
-                   99, # max
+                   9, # max
                    myfunc) # callback func
 
 
@@ -107,9 +107,9 @@ while(True):
     
     # low pass filter
     if r != 0 and r % 2 == 1:
-        frame = gaussianFilter(r, frame)
+        frame = gaussianFilter(r*11, frame)
     elif r != 0 and r % 2 != 1:
-        frame = gaussianFilter(r+1, frame)
+        frame = gaussianFilter(r*11+1, frame)
 
     cv2.imshow('interactive-camera', frame)  # show in the win
 
